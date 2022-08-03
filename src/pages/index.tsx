@@ -1,17 +1,17 @@
 import Head from 'next/head'
-import { Header } from '@/components/Header'
+import { HomePage } from 'src/modules/Home'
 
 import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   return (
-    <main>
+    <>
       <Head>
-        <title>Home</title>
+        <title>Open Dash</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-    </main>
+      <HomePage />
+    </>
   )
 }
 
