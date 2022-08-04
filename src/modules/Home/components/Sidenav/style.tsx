@@ -13,6 +13,24 @@ export const NavSection = styled.nav`
   > header {
     padding-top: 40px;
     padding-bottom: 20px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    width: 70%;
+    display: flex;
+    align-items: center;
+
+    span {
+      background-color: #007aff;
+      color: #ffffff;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 50%;
+      min-width: 10px;
+      min-height: 10px;
+      display: inline-flex;
+      margin-right: 10px;
+    }
   }
 
   > div {

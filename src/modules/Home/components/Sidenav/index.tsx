@@ -7,7 +7,10 @@ import { GoVersions } from 'react-icons/go'
 export function SideNav() {
   return (
     <NavSection>
-      <header>Open Dash</header>
+      <header>
+        <span />
+        Open Dash
+      </header>
       <div>
         <NavItem>
           <MdDashboard />
