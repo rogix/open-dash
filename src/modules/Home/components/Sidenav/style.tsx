@@ -45,7 +45,7 @@ export const NavItem = styled.div`
   height: 50px;
   padding: 0 20px;
   cursor: pointer;
-  width: 70%;
+  width: 80%;
   margin: 20px auto;
   border-radius: 10px;
   transition: background-color 0.2s ease-in-out;

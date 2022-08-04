@@ -1,14 +1,16 @@
-import { Header } from '@/components/Header'
+import { Header } from './components/Header'
+import { BasicData } from './components/BasicData'
 import { SideNav } from './components/Sidenav'
-import { MainSection } from './style'
+import { Container, Main } from './style'
 
 export function HomePage() {
   return (
-    <MainSection>
+    <Container>
       <SideNav />
-      <main>
+      <Main>
         <Header />
-      </main>
-    </MainSection>
+        <BasicData />
+      </Main>
+    </Container>
   )
 }
