@@ -14,3 +14,11 @@ export const Main = styled.main`
   width: 100%;
   padding: 20px;
 `
+
+export const SecondSection = styled.section`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+`

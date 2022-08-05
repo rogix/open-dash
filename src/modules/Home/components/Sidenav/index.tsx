@@ -14,7 +14,7 @@ export function SideNav() {
       <div>
         <NavItem>
           <MdDashboard />
-          <Link href="/">Dashboard</Link>
+          <Link href="/">Overview</Link>
         </NavItem>
         <NavItem>
           <MdAnalytics />
