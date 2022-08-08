@@ -1,6 +1,7 @@
 import { IntroductionBox } from './style'
 import { useQuery, gql } from '@apollo/client'
 import { ResponsiveBar } from '@nivo/bar'
+import { Loader } from '@/components/Loader'
 
 const GET_USER = gql`
   query QueryLanguage {
@@ -37,13 +38,9 @@ type Language = {
 export function Technologies() {
   const { loading, error, data } = useQuery(GET_USER)
 
-  if (loading) {
-    return <p>Loading...</p>
-  }
+  if (loading) return <Loader height="400px" backgroundColor="#1B2130" />
 
-  if (error) {
-    return <p>Error :(</p>
-  }
+  if (error) return <p>Error :(</p>
 
   const { viewer } = data
 

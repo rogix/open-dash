@@ -1,6 +1,7 @@
 import { DetailsBox } from './style'
 import { useQuery, gql } from '@apollo/client'
 import { ResponsivePie } from '@nivo/pie'
+import { Loader } from '@/components/Loader'
 
 const GET_PINNED_REPOSITORIES = gql`
   query PinnedRepositories {
@@ -42,9 +43,7 @@ type Language = {
 export function Details() {
   const { loading, error, data } = useQuery(GET_PINNED_REPOSITORIES)
 
-  if (loading) {
-    return <p>Loading...</p>
-  }
+  if (loading) return <Loader height="400px" backgroundColor="#1B2130" />
 
   if (error) {
     return <p>Error :(</p>

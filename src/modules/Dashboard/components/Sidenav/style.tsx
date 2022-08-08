@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const NavSection = styled.nav`
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -10,6 +10,7 @@ export const NavSection = styled.nav`
   min-height: 100vh;
   color: #8d9098;
   background-color: ${props => props.theme.colors.secondary};
+  position: fixed;
 
   > header {
     padding-top: 40px;
@@ -36,6 +37,10 @@ export const NavSection = styled.nav`
 
   > div {
     width: 100%;
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
   }
 `
 
