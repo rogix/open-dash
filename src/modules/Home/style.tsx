@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${props => props.theme.colors.primary};
 `
 
@@ -17,7 +17,14 @@ export const Main = styled.main`
 
 export const SecondSection = styled.section`
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 3fr 2fr;
+  gap: 20px;
+  margin-top: 20px;
+  width: 100%;
+`
+export const ThirdSection = styled.section`
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
   margin-top: 20px;
   width: 100%;
