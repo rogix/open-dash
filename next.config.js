@@ -7,7 +7,6 @@ const nextConfig = {
   },
   images: {
     domains: ['avatars.githubusercontent.com'],
-    allowFutureImage: true,
   },
   experimental: {
     images: {
