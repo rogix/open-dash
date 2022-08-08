@@ -5,6 +5,15 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ['avatars.githubusercontent.com'],
+    allowFutureImage: true,
+  },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
 }
 
 module.exports = nextConfig
