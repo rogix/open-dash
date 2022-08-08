@@ -4,7 +4,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 100%;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   background: ${props => props.theme.colors.primary};
 
@@ -46,5 +46,9 @@ export const Container = styled.div`
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
       }
     }
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 2fr 1fr;
   }
 `

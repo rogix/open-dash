@@ -1,6 +1,7 @@
 import { useQuery, gql } from '@apollo/client'
 import { Box, Item } from './style'
 import { RiGitRepositoryLine } from 'react-icons/ri'
+import { Loader } from '@/components/Loader'
 
 const GET_PINNED_REPOSITORIES = gql`
   query PinnedRepositories {
@@ -34,7 +35,7 @@ export function PinnedRepositories() {
   const { loading, error, data } = useQuery(GET_PINNED_REPOSITORIES)
 
   if (loading) {
-    return <p>Loading...</p>
+    return <Loader height="400px" backgroundColor="#1B2130" />
   }
 
   if (error) {

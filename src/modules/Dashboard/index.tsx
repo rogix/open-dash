@@ -6,6 +6,8 @@ import { Technologies } from './components/Technologies'
 import { Details } from './components/Details'
 import { useQuery, gql } from '@apollo/client'
 import { PinnedRepositories } from './components/PinnedRepositories'
+import { Loader } from '@/components/Loader'
+import { Error } from '@/components/Error'
 
 const GET_USER = gql`
   query {
@@ -22,13 +24,9 @@ const GET_USER = gql`
 export function Dashboard() {
   const { loading, error, data } = useQuery(GET_USER)
 
-  if (loading) {
-    return <p>Loading...</p>
-  }
+  if (loading) return <Loader backgroundColor="#131722" />
 
-  if (error) {
-    return <p>Error :(</p>
-  }
+  if (error) return <Error />
 
   const { viewer } = data
 
