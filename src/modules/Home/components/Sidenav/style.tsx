@@ -7,6 +7,7 @@ export const NavSection = styled.nav`
   justify-content: flex-start;
   width: 240px;
   height: 100%;
+  min-height: 100vh;
   color: #8d9098;
   background-color: ${props => props.theme.colors.secondary};
 

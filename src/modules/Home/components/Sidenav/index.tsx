@@ -18,11 +18,11 @@ export function SideNav() {
         </NavItem>
         <NavItem>
           <MdAnalytics />
-          <Link href="/">Analytics</Link>
+          <Link href="/">Repositories</Link>
         </NavItem>
         <NavItem>
           <FaCodeBranch />
-          <Link href="/">Dependecies</Link>
+          <Link href="/">Discussions</Link>
         </NavItem>
         <NavItem>
           <GoVersions />
