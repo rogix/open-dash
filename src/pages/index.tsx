@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { HomePage } from 'src/modules/Home'
-import { useSession, signIn, signOut } from 'next-auth/react'
+import { Dashboard } from '@/modules/Dashboard'
+import { useSession, signIn } from 'next-auth/react'
 
 import type { NextPage } from 'next'
+import { HomePage } from '@/modules/Home'
 
 const Home: NextPage = () => {
   const { data: session } = useSession()
@@ -10,8 +11,7 @@ const Home: NextPage = () => {
   if (!session) {
     return (
       <div>
-        Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
+        <HomePage />
       </div>
     )
   }
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
         <title>Open Dash</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HomePage />
+      <Dashboard />
     </>
   )
 }

@@ -17,7 +17,7 @@ export const Main = styled.main`
 
 export const SecondSection = styled.section`
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 2fr 2fr;
   gap: 20px;
   margin-top: 20px;
   width: 100%;
