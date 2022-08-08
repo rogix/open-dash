@@ -1,9 +1,38 @@
 import { DataSection, DataSectionItem } from './style'
-import { AiTwotoneStar } from 'react-icons/ai'
+import { GoLocation } from 'react-icons/go'
 import { FaGithub, FaHome } from 'react-icons/fa'
-import { GoVersions } from 'react-icons/go'
+import { IoMdBusiness } from 'react-icons/io'
+
+import { useQuery, gql } from '@apollo/client'
+
+const GET_USER = gql`
+  query {
+    viewer {
+      name
+      websiteUrl
+      avatarUrl
+      bio
+      company
+      email
+      login
+      location
+    }
+  }
+`
 
 export function BasicData() {
+  const { loading, error, data } = useQuery(GET_USER)
+
+  if (loading) {
+    return <p>Loading...</p>
+  }
+
+  if (error) {
+    return <p>Error :(</p>
+  }
+
+  const { viewer } = data
+
   return (
     <DataSection>
       <DataSectionItem>
@@ -11,28 +40,28 @@ export function BasicData() {
           <FaHome />
           <span>Website</span>
         </div>
-        <h2>react.com</h2>
+        <h2>{viewer.websiteUrl}</h2>
       </DataSectionItem>
       <DataSectionItem>
         <div>
           <FaGithub />
           <span>Github</span>
         </div>
-        <h2>react</h2>
+        <h2>{viewer.login}</h2>
       </DataSectionItem>
       <DataSectionItem>
         <div>
-          <AiTwotoneStar />
-          <span>Stars</span>
+          <GoLocation />
+          <span>Location</span>
         </div>
-        <h2>2345</h2>
+        <h2>{viewer.location}</h2>
       </DataSectionItem>
       <DataSectionItem>
         <div>
-          <GoVersions />
-          <span>Current version</span>
+          <IoMdBusiness />
+          <span>Current company</span>
         </div>
-        <h2>18.1</h2>
+        <h2>{viewer.company}</h2>
       </DataSectionItem>
     </DataSection>
   )
