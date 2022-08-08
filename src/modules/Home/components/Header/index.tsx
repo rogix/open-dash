@@ -1,6 +1,7 @@
 import { Search } from '@/components/Search'
 import { HeaderBox } from './style'
 import Image from 'next/future/image'
+import { useSession, signOut } from 'next-auth/react'
 
 type Props = {
   name: string
@@ -11,6 +12,8 @@ type Props = {
 const imgStyle = { borderRadius: '50%', marginRight: '1rem' }
 
 export function Header({ avatar, name, bio }: Props) {
+  const { data: session } = useSession()
+
   return (
     <HeaderBox>
       <div>
@@ -27,7 +30,10 @@ export function Header({ avatar, name, bio }: Props) {
           <p>{bio}</p>
         </div>
       </div>
-      <Search />
+      <div className="search-sign-out">
+        <Search />
+        {session && <button onClick={() => signOut()}>Sign out</button>}
+      </div>
     </HeaderBox>
   )
 }
