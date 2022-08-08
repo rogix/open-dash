@@ -7,5 +7,6 @@ export const DetailsBox = styled.article`
   background-color: ${props => props.theme.colors.secondary};
   border-radius: 8px;
   padding: 20px;
+  height: 440px;
   color: #fff;
 `
