@@ -22,11 +22,11 @@ export function SideNav() {
         </NavItem>
         <NavItem>
           <FaCodeBranch />
-          <Link href="/">Discussions</Link>
+          <Link href="/">Gists</Link>
         </NavItem>
         <NavItem>
           <GoVersions />
-          <Link href="/">Versions</Link>
+          <Link href="/">Organizations</Link>
         </NavItem>
       </div>
     </NavSection>

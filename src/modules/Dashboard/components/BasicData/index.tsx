@@ -4,6 +4,7 @@ import { FaGithub, FaHome } from 'react-icons/fa'
 import { IoMdBusiness } from 'react-icons/io'
 
 import { useQuery, gql } from '@apollo/client'
+import { Loader } from '@/components/Loader'
 
 const GET_USER = gql`
   query {
@@ -23,13 +24,9 @@ const GET_USER = gql`
 export function BasicData() {
   const { loading, error, data } = useQuery(GET_USER)
 
-  if (loading) {
-    return <p>Loading...</p>
-  }
+  if (loading) return <Loader backgroundColor="#131722" height="116px" />
 
-  if (error) {
-    return <p>Error :(</p>
-  }
+  if (error) return <p>Error :(</p>
 
   const { viewer } = data
 
