@@ -2,6 +2,7 @@ import { useQuery, gql } from '@apollo/client'
 import { Box, Item } from './style'
 import { RiGitRepositoryLine } from 'react-icons/ri'
 import { Loader } from '@/components/Loader'
+import { fromNow } from '@/utils/time'
 
 const GET_PINNED_REPOSITORIES = gql`
   query PinnedRepositories {
@@ -14,6 +15,7 @@ const GET_PINNED_REPOSITORIES = gql`
               name
               description
               url
+              createdAt
               languages(last: 10) {
                 edges {
                   node {
@@ -54,7 +56,7 @@ export function PinnedRepositories() {
               <RiGitRepositoryLine />
               <a href={node.url}>{node.name}</a>
             </div>
-            Created At: {node.createdAt}
+            Created: {fromNow(node.createdAt)}
           </li>
         ))}
       </Item>
