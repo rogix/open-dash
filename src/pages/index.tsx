@@ -8,13 +8,13 @@ import { HomePage } from '@/modules/Home'
 const Home: NextPage = () => {
   const { data: session } = useSession()
 
-  if (!session) {
-    return (
-      <div>
-        <HomePage />
-      </div>
-    )
-  }
+  // if (!session) {
+  //   return (
+  //     <div>
+  //       <HomePage />
+  //     </div>
+  //   )
+  // }
 
   return (
     <>

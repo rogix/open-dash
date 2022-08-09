@@ -3,39 +3,27 @@ import styled from 'styled-components'
 export const Container = styled.div`
   height: 100vh;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   justify-content: center;
   background: ${props => props.theme.colors.primary};
-
-  > div {
-    background-color: ${props => props.theme.colors.secondary};
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-
-    h2 {
-      font-size: 2rem;
-      text-align: left;
-      padding-bottom: 50px;
-    }
-  }
+  color: #fff;
 
   > section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+
+    h2 {
+      font-size: 2rem;
+    }
 
     button {
       background-color: #0d8bff;
       color: #fff;
       border: none;
       border-radius: 8px;
-      padding: 20px 30px;
+      padding: 10px 30px;
       font-size: 20px;
       font-weight: bold;
       cursor: pointer;
