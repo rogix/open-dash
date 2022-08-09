@@ -24,8 +24,8 @@ export function Loader({ height, backgroundColor }: Props) {
       <ReactLoading
         type="bubbles"
         color={backgroundColor === '#131722' ? '#1B2130' : '#131722'}
-        height={300}
-        width={200}
+        height={200}
+        width={100}
       />
     </Container>
   )
