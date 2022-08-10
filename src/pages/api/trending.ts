@@ -11,7 +11,7 @@ const getTrendingRepositories = async () => {
     browser = await puppeteer.launch({
       args: chromium.args,
       executablePath: await chromium.executablePath,
-      headless: true,
+      headless: chromium.headless,
     })
 
     page = await browser.newPage()
