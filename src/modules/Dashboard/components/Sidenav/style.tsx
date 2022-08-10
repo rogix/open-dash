@@ -33,6 +33,11 @@ export const NavSection = styled.nav`
       display: inline-flex;
       margin-right: 10px;
     }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+    }
   }
 
   > div {

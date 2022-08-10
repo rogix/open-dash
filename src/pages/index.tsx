@@ -4,9 +4,12 @@ import { useSession, signIn } from 'next-auth/react'
 
 import type { NextPage } from 'next'
 import { HomePage } from '@/modules/Home'
+import { getTrendingRepositories } from 'src/services/api'
+import { Trending } from '@/modules/Trending'
+import { gql } from '@apollo/client'
 
-const Home: NextPage = () => {
-  const { data: session } = useSession()
+const Home: NextPage = ({ data }: any) => {
+  // const { data: session } = useSession()
 
   // if (!session) {
   //   return (
@@ -22,9 +25,19 @@ const Home: NextPage = () => {
         <title>Open Dash</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Dashboard />
+      <Trending data={data} />
     </>
   )
 }
 
 export default Home
+
+export async function getServerSideProps() {
+  const data = await getTrendingRepositories()
+
+  return {
+    props: {
+      data,
+    },
+  }
+}

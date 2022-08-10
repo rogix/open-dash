@@ -9,12 +9,12 @@ export function SideNav() {
     <NavSection>
       <header>
         <span />
-        Open Dash
+        <Link href="/">Open Dash</Link>
       </header>
       <div>
         <NavItem>
           <MdDashboard />
-          <Link href="/">Overview</Link>
+          <Link href="/dashboard">Overview</Link>
         </NavItem>
         <NavItem>
           <MdAnalytics />
