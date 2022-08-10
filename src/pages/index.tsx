@@ -4,7 +4,7 @@ import { useSession, signIn } from 'next-auth/react'
 
 import type { NextPage } from 'next'
 import { HomePage } from '@/modules/Home'
-import { getTrendingRepositories } from 'src/services/api'
+import { getTrendingRepositories } from './api/trending'
 import { Trending } from '@/modules/Trending'
 import { gql } from '@apollo/client'
 
