@@ -37,14 +37,15 @@ export function Details({ data }: User) {
     [],
   )
 
-  const languages = languagesCount.map(
-    ({ id, name, count, color }: Language) => ({
+  const languages = languagesCount
+    .map(({ id, name, count, color }: Language) => ({
       color: color,
       label: name,
       value: count,
       id: name,
-    }),
-  )
+    }))
+    .slice(0, 5)
+
   return (
     <DetailsBox>
       <h2>Pinned Reps Main Technologies</h2>
