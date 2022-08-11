@@ -2,31 +2,7 @@ import { IntroductionBox } from './style'
 import { useQuery, gql } from '@apollo/client'
 import { ResponsiveBar } from '@nivo/bar'
 import { Loader } from '@/components/Loader'
-
-const GET_USER = gql`
-  query QueryLanguage {
-    viewer {
-      repositories(affiliations: OWNER, last: 100) {
-        edges {
-          node {
-            id
-            description
-            name
-            languages(last: 100) {
-              edges {
-                node {
-                  id
-                  name
-                  color
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+import { User } from '../../types/githubUser'
 
 type Language = {
   id: string
@@ -35,18 +11,12 @@ type Language = {
   count: number
 }
 
-export function Technologies() {
-  const { loading, error, data } = useQuery(GET_USER)
+export function Technologies({ data }: User) {
+  const { user } = data
 
-  if (loading) return <Loader height="400px" backgroundColor="#1B2130" />
-
-  if (error) return <p>Error :(</p>
-
-  const { viewer } = data
-
-  const languagesCount = viewer.repositories.edges.reduce(
+  const languagesCount = user.repositories.edges.reduce(
     (acc: any, { node }: any) => {
-      node.languages.edges.forEach(({ node }: any) => {
+      node.languages?.edges.forEach(({ node }: any) => {
         const language = acc.find(({ name }: any) => name === node.name)
         if (language) {
           language.count++

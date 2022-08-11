@@ -14,6 +14,7 @@ export const SearchBox = styled.div`
     background-color: ${props => props.theme.colors.secondary};
     padding-left: 10px;
     border: 0;
+    color: #fff;
 
     &::before {
       content: '🔍';

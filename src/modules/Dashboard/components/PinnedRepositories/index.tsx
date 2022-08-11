@@ -3,54 +3,16 @@ import { Box, Item } from './style'
 import { RiGitRepositoryLine } from 'react-icons/ri'
 import { Loader } from '@/components/Loader'
 import { fromNow } from '@/utils/time'
+import { User } from '../../types/githubUser'
 
-const GET_PINNED_REPOSITORIES = gql`
-  query PinnedRepositories {
-    viewer {
-      pinnedItems(last: 6) {
-        edges {
-          node {
-            ... on Repository {
-              id
-              name
-              description
-              url
-              createdAt
-              languages(last: 10) {
-                edges {
-                  node {
-                    id
-                    name
-                    color
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-export function PinnedRepositories() {
-  const { loading, error, data } = useQuery(GET_PINNED_REPOSITORIES)
-
-  if (loading) {
-    return <Loader height="400px" backgroundColor="#1B2130" />
-  }
-
-  if (error) {
-    return <p>Error :(</p>
-  }
-
-  const { viewer } = data
+export function PinnedRepositories({ data }: User) {
+  const { user } = data
 
   return (
     <Box>
       <h2>Pinned Repositories</h2>
       <Item>
-        {viewer.pinnedItems.edges.map(({ node }: any) => (
+        {user.pinnedItems.edges.map(({ node }: any) => (
           <li key={node.id}>
             <div>
               <RiGitRepositoryLine />

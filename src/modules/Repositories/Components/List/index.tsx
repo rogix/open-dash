@@ -7,7 +7,7 @@ import { fromNow } from '@/utils/time'
 const GET_REPOSITORIES = gql`
   query Repositories {
     viewer {
-      repositories(last: 10) {
+      repositories(last: 10, privacy: PUBLIC) {
         nodes {
           id
           name
