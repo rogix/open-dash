@@ -1,0 +1,39 @@
+type Query {
+  user(id: ID!): User
+}
+
+type User {
+  id: ID!
+  bio: String
+  avatar: String
+  company: String
+  location: String
+  name: String
+  websiteUrl: String
+  createdAt: DateTime!
+  login: String!
+  pinnedItems(last: Int): PinnedItemsConnection!
+}
+
+type PinnedItemsConnection {
+  edges: [PinnedItemsEdge]!
+}
+
+type PinnedItemsEdge {
+  node: PinnedItem!
+}
+
+type PinnedItem {
+  id: ID!
+  title: String!
+  url: String!
+  description: String
+  url: String!
+  createdAt: DateTime!
+  languages: [Language]
+}
+
+type Language {
+  name: String!
+  color: String!
+}

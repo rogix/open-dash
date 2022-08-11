@@ -2,36 +2,9 @@ import { DetailsBox } from './style'
 import { useQuery, gql } from '@apollo/client'
 import { ResponsivePie } from '@nivo/pie'
 import { Loader } from '@/components/Loader'
+import { User } from '../../types/githubUser'
 
-const GET_PINNED_REPOSITORIES = gql`
-  query PinnedRepositories {
-    viewer {
-      pinnedItems(last: 6) {
-        edges {
-          node {
-            ... on Repository {
-              id
-              name
-              description
-              url
-              languages(last: 10) {
-                edges {
-                  node {
-                    id
-                    name
-                    color
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
-
-type Language = {
+export type Language = {
   id: string
   name: string
   color: string
@@ -40,20 +13,12 @@ type Language = {
   value: number
 }
 
-export function Details() {
-  const { loading, error, data } = useQuery(GET_PINNED_REPOSITORIES)
+export function Details({ data }: User) {
+  const { user } = data
 
-  if (loading) return <Loader height="400px" backgroundColor="#1B2130" />
-
-  if (error) {
-    return <p>Error :(</p>
-  }
-
-  const { viewer } = data
-
-  const languagesCount = viewer.pinnedItems.edges.reduce(
+  const languagesCount = user.pinnedItems.edges.reduce(
     (acc: any, { node }: any) => {
-      node.languages.edges.forEach(({ node }: any) => {
+      node.languages?.edges.forEach(({ node }: any) => {
         const language = acc.find(({ name }: any) => name === node.name)
         if (language) {
           language.count++
@@ -82,7 +47,7 @@ export function Details() {
   )
   return (
     <DetailsBox>
-      <h2>Main Technologies</h2>
+      <h2>Pinned Reps Main Technologies</h2>
       <ResponsivePie
         data={languages}
         margin={{ top: 10, right: 40, bottom: 80, left: 40 }}
@@ -107,7 +72,7 @@ export function Details() {
             justify: false,
             translateX: 0,
             translateY: 56,
-            itemsSpacing: 0,
+            itemsSpacing: -10,
             itemWidth: 100,
             itemHeight: 18,
             itemTextColor: '#999',

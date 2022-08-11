@@ -12,8 +12,6 @@ type Props = {
 const imgStyle = { borderRadius: '50%', marginRight: '1rem' }
 
 export function Header({ avatar, name, bio }: Props) {
-  const { data: session } = useSession()
-
   return (
     <HeaderBox>
       <div>
@@ -29,10 +27,6 @@ export function Header({ avatar, name, bio }: Props) {
           <h2>{name}</h2>
           <p>{bio}</p>
         </div>
-      </div>
-      <div className="search-sign-out">
-        <Search />
-        {session && <button onClick={() => signOut()}>Sign out</button>}
       </div>
     </HeaderBox>
   )

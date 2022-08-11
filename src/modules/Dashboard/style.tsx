@@ -1,3 +1,4 @@
+import { SearchBox } from '@/components/Search/style'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -38,4 +39,20 @@ export const ThirdSection = styled.section`
   gap: 20px;
   margin-top: 20px;
   width: 100%;
+`
+
+export const Search = styled(SearchBox)`
+  color: #fff;
+
+  button {
+    background-color: #18a2b4;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+    height: 40px;
+  }
 `

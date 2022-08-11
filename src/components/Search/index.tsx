@@ -1,10 +1,15 @@
 import { SearchBox } from './style'
 import { BiSearch } from 'react-icons/bi'
 
-export function Search() {
+type Props = {
+  search: string
+  setSearch: (search: string) => void
+}
+
+export function Search({ setSearch }: any) {
   return (
     <SearchBox>
-      <input type="text" placeholder="Search" />
+      <input type="text" placeholder="Search" onChange={() => setSearch} />
       {/* <span>
         <BiSearch />
       </span> */}
