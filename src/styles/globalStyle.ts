@@ -12,4 +12,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family:  Roboto, sans-serif;
     background-color: #131722;
   }
+
+  ul {
+    list-style: none;
+  }
 `
